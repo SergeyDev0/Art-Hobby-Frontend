@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useSearchParams } from 'react-router-dom';
 import Home from './pages/Home'
 import Cart from './pages/CartShop';
 import Product from './pages/Product';
@@ -12,9 +12,6 @@ const App = () => {
   const [cartItems, setCartItems] = React.useState([]);
   const [productItem, setProductItem] = React.useState([]);
   const [counter, setCounter] = React.useState(1);
-
-
-
 
   function showProduct(item) {
     setProductItem(item);
@@ -54,7 +51,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="cart" element={<Cart />} />
-          <Route path="product" element={<Product />} />
+          <Route path="product/:id" element={<Product />} />
           <Route path="catalog" element={<Catalog />} />
           <Route path="result" element={<ResultCatalog />} />
         </Routes>

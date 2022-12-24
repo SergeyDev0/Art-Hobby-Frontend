@@ -16,8 +16,8 @@ export default function Items() {
             "article": "ceddJKm7",
             "material": "Фаомиран, пластик и др.",
             "size": "50 см"
-        }
-    
+        }   
+
     React.useEffect(() => {
         fetch('http://localhost:8080/filterByDate')
         .then((res) => {
@@ -45,11 +45,11 @@ export default function Items() {
          <div className="new-items">
              <HeaderNewItems />
              <ul className="slides">
-                {newItems.map((item, index) => {
+                {newItems?.map((item, index) => {
                     if(index < 10) {
                         return (
                             <Item
-                            key={index}
+                            id={item.id}
                             img={item.fileName} 
                             alt={item.name} 
                             title={item.name}

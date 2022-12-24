@@ -1,20 +1,15 @@
 import React from "react";
-import { CartContext } from "../../App";
 
-const ProductInfo = () => {
-    const { productItem } = React.useContext(CartContext);
+const ProductInfo = (data) => {
+    const props = data.data;
     return (
-        <div className="product-info">
-            {[productItem].map((item) => {
-                return (
-                    <div className="product__profile-info">
-                        <div className="row">
-                            <h2 className="product-title">{item.title}</h2>
-                            <h3 className="product-price">{item.price}&nbsp;₽</h3>
-                        </div>
-                    </div>
-                )
-            })}
+        <div className="product-info" key={props.id}>
+            <div className="product__profile-info">
+                <div className="row">
+                    <h2 className="product-title">{props.name}</h2> 
+                    <h3 className="product-price">{props.price}&nbsp;₽</h3>
+                </div>
+            </div>    
         </div>
     )
 }
